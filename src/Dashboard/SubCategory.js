@@ -52,8 +52,9 @@ export const SingleCategory = ({ history }) => {
                     id={obj._id}
                   >
                     fff
+                    
                   </button>
-                  <div className="singleboxttitle">{obj.title}</div>
+                  <div className="singleboxttitle">{obj.title}<p style={{color:"white"}}>{obj.date}</p></div>
                 </div>
               </div>
             </div>
