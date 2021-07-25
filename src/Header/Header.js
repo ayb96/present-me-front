@@ -9,29 +9,7 @@ export const Header = () => {
   return (
     <div className="header-container">
       <div className="logo">
-        <img
-          src={HeaderIcon}
-          alt="logo"
-          onClick={() => {
-            history.push("/");
-          }}
-        />
-        <div className="logreg">
-          <button
-            onClick={() => {
-              history.push("/login");
-            }}
-          >
-            Login
-          </button>
-          <button
-            onClick={() => {
-              history.push("/Registration");
-            }}
-          >
-            Registration
-          </button>
-        </div>
+        <h1>Present Me</h1>
       </div>
       <div className="search-box">
         <input type="text" className="search-text" placeholder="search" />

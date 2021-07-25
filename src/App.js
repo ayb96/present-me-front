@@ -11,15 +11,16 @@ import LoginPage from "./LoginPage/LoginPage";
 import { Dashboard } from "./Dashboard/Dashboard";
 import { Registration } from "./Registration/Registration";
 import { AllEventsSubCategory } from "./allEventsSubCategory/allEventsSubCategory";
-import { ProtectedRoute } from "./ProtectedRoute";
+
 import React, { useState, useEffect } from "react";
 import { SingleCategory } from "./Dashboard/SubCategory";
 import SingleEvent from "./singleEvent/SingleEvent";
 import { MyContext } from "./Context";
+import { Dashback } from "./newDashboard/Popup";
 function App({ history }) {
   const [isAuth, setIsAuth] = useState(false);
   const [singlee, setSinglee] = useState([]);
-  const [last, setLast] = useState()
+  const [last, setLast] = useState();
   useEffect(() => {
     const userInfo = localStorage.getItem("userInfo");
     console.log(userInfo);
@@ -29,7 +30,6 @@ function App({ history }) {
     }
   }, [history]);
 
-  
   return (
     <div className="App">
       <MyContext.Provider value={{ singlee, setSinglee, last, setLast }}>
@@ -50,11 +50,7 @@ function App({ history }) {
           <Route path="/singles" exact component={SingleCategory} />
           <Route path="/allevent" exact component={AllEventsSubCategory} />
           <Route path="/singleevent" exact component={SingleEvent} />
-          <ProtectedRoute
-            path="/dashboard"
-            component={Dashboard}
-            isAuth={isAuth}
-          />
+          <Route path="/dashboard" exact component={Dashback} />
         </Switch>
         <Footer />
       </MyContext.Provider>
