@@ -34,7 +34,6 @@ const GRID_BOX = {
 
 //add
 
-
 export const Dashback = ({ history }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [info, setInfo] = useState([]);
@@ -48,7 +47,27 @@ export const Dashback = ({ history }) => {
     }
     fetchData();
   }, []);
-
+  
+  const handeldeletesub = (e) => {
+    e.preventDefault();
+    e.stopPropagation()
+    async function fetchData() {
+      const req = await axios.delete(
+        `subcategories/${e.target.id}`
+      );
+    }
+    fetchData();
+  };
+  const handeldeletemain = (e) => {
+    e.preventDefault();
+    e.stopPropagation()
+    async function fetchData() {
+      const req = await axios.delete(
+        `maincategories/${e.target.id}`
+      );
+    }
+    fetchData();
+  };
   const { singlee, setSinglee } = useContext(MyContext);
   const gotosingle = (e) => {
     e.preventDefault();
@@ -82,20 +101,19 @@ export const Dashback = ({ history }) => {
   return (
     <>
       <div style={BUTTON_WRAPPER_STYLES}>
-      <button
-        onClick={() => {
-          localStorage.removeItem("userInfo");
-          history.push("/");
-        }}
-      >
-        logout
-      </button>
+        <button
+          onClick={() => {
+            localStorage.removeItem("userInfo");
+            history.push("/");
+          }}
+        >
+          logout
+        </button>
         <div style={GRID_BOX}>
           {yow.map((obj, index) => (
             <div
               key={index}
               style={{
-                
                 position: "relative",
                 backgroundImage: `url(${obj.imgUrl})`,
                 backgroundRepeat: "no-repeat",
@@ -114,8 +132,8 @@ export const Dashback = ({ history }) => {
               ></button>
               <div className="singleboxttitle">{obj.title}</div>
               <div className="btnmainone">
-              <button >edit</button>
-              <button >delete</button>
+                <button>edit</button>
+                <button id={obj._id} onClick={handeldeletemain}>delete</button>
               </div>
             </div>
           ))}
@@ -131,12 +149,17 @@ export const Dashback = ({ history }) => {
                     id={obj._id}
                     onClick={gotosingle}
                   >
-                    
                     {obj.title}
                   </button>
                   <div className="wqere">
-                  <button className="dashfunbtn">edit</button>
-                  <button className="dashfunbtn delbtnz">delete</button>
+                    <button className="dashfunbtn">edit</button>
+                    <button
+                      className="dashfunbtn delbtnz"
+                      id={obj._id}
+                      onClick={handeldeletesub}
+                    >
+                      delete
+                    </button>
                   </div>
                 </div>
               ))}
