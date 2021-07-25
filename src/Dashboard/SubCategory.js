@@ -35,7 +35,7 @@ export const SingleCategory = ({ history }) => {
                 <div
                   id={obj._id}
                   style={{
-                    backgroundImage: `url(${obj.imgUrl})`,
+                    backgroundImage: `url(${obj.event})`,
                     border: "1px solid red",
                     position: "relative",
                   }}

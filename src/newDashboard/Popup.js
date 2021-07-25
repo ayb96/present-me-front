@@ -68,7 +68,36 @@ export const Dashback = ({ history }) => {
     }
     fetchData();
   };
-  const { singlee, setSinglee } = useContext(MyContext);
+
+
+  
+
+
+
+  const { singlee, setSinglee, subid, setSubid } = useContext(MyContext);
+
+
+
+  const handelCreateSub = (e) =>{
+    e.preventDefault();
+    e.stopPropagation()
+    setSubid(e.target.id)
+    console.log(subid)
+    history.push("/createsubbevent");
+
+
+  }
+  const handelCreateSingle = (e) =>{
+    e.preventDefault();
+    e.stopPropagation()
+    setSubid(e.target.id)
+    console.log(subid)
+    history.push("/createsingleevent");
+
+
+  }
+
+
   const gotosingle = (e) => {
     e.preventDefault();
     {
@@ -101,6 +130,22 @@ export const Dashback = ({ history }) => {
   return (
     <>
       <div style={BUTTON_WRAPPER_STYLES}>
+      <button
+          onClick={() => {
+            
+            history.push("/createmainevent");
+          }}
+        >
+          Create main
+        </button>
+      <button
+          onClick={() => {
+            
+            history.push("/createsubevent");
+          }}
+        >
+          Create sub
+        </button>
         <button
           onClick={() => {
             localStorage.removeItem("userInfo");
@@ -134,6 +179,7 @@ export const Dashback = ({ history }) => {
               <div className="btnmainone">
                 <button>edit</button>
                 <button id={obj._id} onClick={handeldeletemain}>delete</button>
+                <button id={obj._id} onClick={handelCreateSub}>Create Sub</button>
               </div>
             </div>
           ))}
@@ -141,9 +187,9 @@ export const Dashback = ({ history }) => {
 
         <Modal open={isOpen} onClose={() => setIsOpen(false)}>
           <form>
-            <div>
+            <div className="overpop">
               {info.map((obj, index) => (
-                <div style={POPBOX}>
+                <div style={POPBOX} >
                   <button
                     style={BUTTON_COMPONENT}
                     id={obj._id}
@@ -160,6 +206,7 @@ export const Dashback = ({ history }) => {
                     >
                       delete
                     </button>
+                    <button id={obj._id} onClick={handelCreateSingle} className="dashfunbtn delbtnz">Create Sub</button>
                   </div>
                 </div>
               ))}

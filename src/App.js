@@ -11,15 +11,18 @@ import LoginPage from "./LoginPage/LoginPage";
 import { Dashboard } from "./Dashboard/Dashboard";
 import { Registration } from "./Registration/Registration";
 import { AllEventsSubCategory } from "./allEventsSubCategory/allEventsSubCategory";
-
+import CreateSubEvent from './CreateSubEvent /CreateSubEvent'
+import {CreateMainEvent} from './CreateMain/createMain'
 import React, { useState, useEffect } from "react";
 import { SingleCategory } from "./Dashboard/SubCategory";
 import SingleEvent from "./singleEvent/SingleEvent";
+import {CreateSubbEvent} from './CreateSub/createSub'
 import { MyContext } from "./Context";
 import { Dashback } from "./newDashboard/Popup";
 function App({ history }) {
   const [isAuth, setIsAuth] = useState(false);
   const [singlee, setSinglee] = useState([]);
+  const [subid, setSubid] = useState('')
   const [last, setLast] = useState();
   useEffect(() => {
     const userInfo = localStorage.getItem("userInfo");
@@ -32,7 +35,7 @@ function App({ history }) {
 
   return (
     <div className="App">
-      <MyContext.Provider value={{ singlee, setSinglee, last, setLast }}>
+      <MyContext.Provider value={{ singlee, setSinglee, last, setLast, subid, setSubid}}>
         <Header />
         <Switch>
           <Route path="/" exact>
@@ -51,6 +54,9 @@ function App({ history }) {
           <Route path="/allevent" exact component={AllEventsSubCategory} />
           <Route path="/singleevent" exact component={SingleEvent} />
           <Route path="/dashboard" exact component={Dashback} />
+          <Route path="/createsingleevent" exact component={CreateSubEvent} />
+          <Route path="/createmainevent" exact component={CreateMainEvent} />
+          <Route path="/createsubbevent" exact component={CreateSubbEvent} />
         </Switch>
         <Footer />
       </MyContext.Provider>

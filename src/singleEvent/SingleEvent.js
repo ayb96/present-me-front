@@ -9,18 +9,18 @@ const SingleEvent = (props) => {
   return (
     <div className="container-2">
       <h1>{singlee.title}</h1>
-      <img src={singlee.imgUrl} className="event__img" alt="" onClick={()=>{
+      <img src={singlee.auther} className="event__img" alt="" onClick={()=>{
         console.log(singlee)
       }}/>
       <div className="box-1">
         <div className="event-info">
           <h3>Title: {singlee.title}</h3>
-          <h3>Description: </h3>
-          <h3>Event Date: </h3>
+          <h3>Description: {singlee.description} </h3>
+          <h3>Event Date: {singlee.date} </h3>
         </div>
         <div className="host-info">
-          <img   alt="" />
-          <h3></h3>
+          <img   src = {singlee.auther} alt="" />
+          <h3>{singlee.name}</h3>
         </div>
       </div>
       <button className="btna">Attend</button>
