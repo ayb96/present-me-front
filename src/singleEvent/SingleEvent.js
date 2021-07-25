@@ -1,17 +1,29 @@
-import React, {useContext, useEffect} from "react";
+import React, { useContext, useEffect } from "react";
 import "./SingleEvent.css";
 import { MyContext } from ".././Context";
 
 const SingleEvent = (props) => {
   const { singlee, setSinglee } = useContext(MyContext);
 
-  
   return (
     <div className="container-2">
-      <h1>{singlee.title}</h1>
-      <img src={singlee.imgUrl} className="event__img" alt="" onClick={()=>{
-        console.log(singlee)
-      }}/>
+      <h1
+        style={{
+          margin: "1rem 0 1rem 0",
+          textTransform: "uppercase",
+          letterSpacing: "4px",
+        }}
+      >
+        {singlee.title}
+      </h1>
+      <img
+        src={singlee.imgUrl}
+        className="event__img"
+        alt=""
+        onClick={() => {
+          console.log(singlee);
+        }}
+      />
       <div className="box-1">
         <div className="event-info">
           <h3>Title: {singlee.title}</h3>
@@ -19,7 +31,7 @@ const SingleEvent = (props) => {
           <h3>Event Date: </h3>
         </div>
         <div className="host-info">
-          <img   alt="" />
+          <img alt="" />
           <h3></h3>
         </div>
       </div>

@@ -1,44 +1,56 @@
 import React, { useState, useEffect } from "react";
 import "./Header.css";
-import HeaderIcon from "./HeaderImage/logoImage.png";
+import SearchIcon from "@material-ui/icons/Search";
+import MenuIcon from "@material-ui/icons/Menu";
+import CloseIcon from "@material-ui/icons/Close";
 import { useHistory } from "react-router-dom";
 
 export const Header = () => {
   let history = useHistory();
 
   return (
-    <div className="header-container">
-      <div className="logo">
-        <h1>Present Me</h1>
-      </div>
-      <div className="search-box">
-        <input type="text" className="search-text" placeholder="search" />
-        <button className="search-btn">
-          <i class="fas fa-search"></i>
-        </button>
-        <br />
-      </div>
-
-      <div className="nav-container">
-        <div
-          className="radius btn btn1 sub-box"
-          onClick={() => {
-            history.push("/");
-          }}
-        >
-          Home
+    <div>
+      <input type="checkbox" id="check" />
+      <nav>
+        <div className="icon">Present Me</div>
+        <div className="search">
+          <input type="search" placeholder="Search here..." />
+          <SearchIcon style={{ fontSize: 30 }} className="search_material" />
         </div>
-        <div
-          className="btn btn1 sub-box"
-          onClick={() => {
-            history.push("/discover");
-          }}
-        >
-          Discover
-        </div>
-        <div className="btn btn1 sub-box">About us</div>
-        <div className="radius btn btn1">Contact us</div>
-      </div>
+        <ul>
+          <li>
+            <a
+              href="#"
+              onClick={() => {
+                history.push("/");
+              }}
+            >
+              {" "}
+              home{" "}
+            </a>
+          </li>
+          <li>
+            <a
+              href="#"
+              onClick={() => {
+                history.push("/discover");
+              }}
+            >
+              Discover
+            </a>
+          </li>
+          <li>
+            <a href="#footer">About Us</a>
+          </li>
+          <li>
+            <a href="#footer">Contact Us</a>
+          </li>
+        </ul>
+        <label htmlFor="check" className="bar">
+          <MenuIcon style={{ color: "#fff" }} id="bars" />
+          <CloseIcon style={{ color: "#fff" }} id="times" />
+        </label>
+      </nav>
     </div>
   );
 };

@@ -7,7 +7,6 @@ import image2 from "./images/slider_2.jpg";
 import image3 from "./images/slider_3.jpg";
 import EmojiEventsTwoToneIcon from "@material-ui/icons/EmojiEventsTwoTone";
 
-
 const slideImages = [
   {
     image: image1,
@@ -26,12 +25,6 @@ const slideImages = [
 export const Slideshow = () => {
   return (
     <div>
-      <div className="topeventHeader">
-        <EmojiEventsTwoToneIcon className="topeventicon" />
-      </div>
-      <div className="top-event-header">
-        <h1 className="top-eventTitle">TOP EVENTS</h1>
-      </div>
       <div className="flex">
         <div className="slide-container">
           <Slide>

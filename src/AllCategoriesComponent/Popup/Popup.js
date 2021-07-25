@@ -15,28 +15,11 @@ const BUTTON_WRAPPER_STYLES = {
   zIndex: 1,
 };
 
-const POPBOX = {
-  display: "flex",
-  flexDirection: "column",
-  backgroundcolor: "red",
-  border: "5px solid red",
-};
-
 const BUTTON_COMPONENT = {
   margin: "5px",
 };
 
-const GRID_BOX = {
-  display: "grid",
-  gridTemplateColumns: "20rem 20rem 20rem",
-  gridAutoRows: "20rem",
-  gridGap: "30px",
-  justifyContent: "center",
-  padding: "30px",
-};
-
 //add
-
 
 export const Popup = ({ history }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -74,6 +57,7 @@ export const Popup = ({ history }) => {
       yow.map((values) => {
         if (values._id == e.target.id) {
           setInfo(values.reviews);
+          setIsOpen(true);
           console.log("first " + values._id);
           console.log("first " + e.target.id);
           console.log(info);
@@ -85,7 +69,7 @@ export const Popup = ({ history }) => {
   return (
     <>
       <div style={BUTTON_WRAPPER_STYLES}>
-        <div style={GRID_BOX}>
+        <div className="grid-box">
           {yow.map((obj, index) => (
             <div
               key={index}
@@ -94,19 +78,20 @@ export const Popup = ({ history }) => {
                 backgroundImage: `url(${obj.imgUrl})`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
+                backgroundPosition: "center",
                 borderRadius: "10px",
-                cursor: "pointer",
                 boxShadow: "-1px 4px 20px -6px rgba(10,10,10,0.75)",
               }}
-              onClick={() => setIsOpen(true)}
+
               // data-aos="fade-up-right"
             >
               <button
                 id={obj._id}
                 onClick={ifclick}
-                className="hiddenbutton"
-              ></button>
-              <div className="singleboxttitle">{obj.title}</div>
+                className="singleboxttitle"
+              >
+                {obj.title}
+              </button>
             </div>
           ))}
         </div>
@@ -115,13 +100,12 @@ export const Popup = ({ history }) => {
           <form>
             <div>
               {info.map((obj, index) => (
-                <div style={POPBOX}>
+                <div className="pop-box">
                   <button
-                    style={BUTTON_COMPONENT}
+                    className="sub-btn-style"
                     id={obj._id}
                     onClick={gotosingle}
                   >
-                    
                     {obj.title}
                   </button>
                 </div>

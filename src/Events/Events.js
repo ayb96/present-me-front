@@ -5,25 +5,6 @@ import "react-slideshow-image/dist/styles.css";
 
 import axios from "../axios";
 
-// import image1 from "./images/slider_1.jpg";
-// import image2 from "./images/slider_2.jpg";
-// import image3 from "./images/slider_3.jpg";
-
-// const slideImages = [
-//   {
-//     image: image1,
-//     title: "hey",
-//   },
-//   {
-//     image: image2,
-//     title: "hey",
-//   },
-//   {
-//     image: image3,
-//     title: "hey",
-//   },
-// ];
-
 export const MainSlideshow = () => {
   const [people, setPeople] = useState([]);
 
@@ -31,7 +12,7 @@ export const MainSlideshow = () => {
     async function fetchData() {
       const req = await axios.get("home");
       setPeople(req.data);
-      console.log(people)
+      console.log(people);
     }
     fetchData();
   }, []);
@@ -44,7 +25,7 @@ export const MainSlideshow = () => {
               return (
                 <div key={index} className="each-slides">
                   <div style={{ backgroundImage: `url(${obj.imgUrl})` }}>
-                     <span>{obj.title}</span> 
+                    <span>{obj.title}</span>
                   </div>
                 </div>
               );

@@ -43,21 +43,5 @@
 .top-eventTitle {
   display: inline;
   padding: 10px;
-  border-top: 2px solid #2C57A1;
-}
-
-.top-event-header {
-  margin-top: 25px;
-  margin-bottom: 25px;
-  display: flex;
-  justify-content: center;
-}
-.topeventHeader {
-  display: flex;
-  justify-content: center;
-}
-.topeventicon {
-  transform: scale(2);
-  margin-top: 40px;
-  
+  border-top: 2px solid #2c57a1;
 }

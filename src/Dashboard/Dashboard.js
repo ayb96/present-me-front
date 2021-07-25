@@ -42,7 +42,13 @@ export const Dashboard = () => {
         return (
           <div className="each-slides-dashboard" key={index}>
             <div>
-              <div style={{ backgroundImage: `url(${obj.imgUrl})` }}></div>
+              <div
+                style={{
+                  backgroundImage: `url(${obj.imgUrl})`,
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                }}
+              ></div>
 
               <button className="edit">Edit</button>
               <button className="delete">Delete</button>

@@ -5,7 +5,7 @@ import { MyContext } from "../Context";
 
 export const SingleCategory = ({ history }) => {
   const { singlee, setSinglee } = useContext(MyContext);
-  const [last, setLast] = useState()
+  const [last, setLast] = useState();
   console.log(singlee);
 
   const gotoosingle = (e) => {
@@ -36,7 +36,7 @@ export const SingleCategory = ({ history }) => {
                   id={obj._id}
                   style={{
                     backgroundImage: `url(${obj.imgUrl})`,
-                    border: "1px solid red",
+                    backgroundSize: "cover",
                     position: "relative",
                   }}
                 >
@@ -50,9 +50,7 @@ export const SingleCategory = ({ history }) => {
                       opacity: "0",
                     }}
                     id={obj._id}
-                  >
-                    fff
-                  </button>
+                  ></button>
                   <div className="singleboxttitle">{obj.title}</div>
                 </div>
               </div>

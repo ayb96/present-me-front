@@ -3,15 +3,15 @@ import { UniqueFeatures } from "./components/UniqueFeatures/UniqueFeatures";
 import { Slideshow } from "./components/TopEvent/TopEvent";
 import { MainSlideshow } from "./Events/Events";
 import { Header } from "./Header/Header";
-import { Footer } from "./Footer/Footer";
-import { Testimonial } from "./Testimonial/Testimonial";
+import Footer from "./Footer/Footer";
+import Testimonial from "./Testimonial/Testimonials";
 import { Popup } from "./AllCategoriesComponent/Popup/Popup";
 import { Switch, Route } from "react-router-dom";
 import LoginPage from "./LoginPage/LoginPage";
 import { Dashboard } from "./Dashboard/Dashboard";
 import { Registration } from "./Registration/Registration";
 import { AllEventsSubCategory } from "./allEventsSubCategory/allEventsSubCategory";
-
+import Title from "./titles/Title";
 import React, { useState, useEffect } from "react";
 import { SingleCategory } from "./Dashboard/SubCategory";
 import SingleEvent from "./singleEvent/SingleEvent";
@@ -37,8 +37,12 @@ function App({ history }) {
         <Switch>
           <Route path="/" exact>
             <MainSlideshow />
+            <Title title="My Category" />
+            <Title title="What Make Us Uniqe" />
             <UniqueFeatures />
+            <Title title="Top Event" />
             <Slideshow />
+            <Title title="Testimonials" />
             <Testimonial />
             <SingleCategory />
           </Route>
