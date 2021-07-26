@@ -8,6 +8,21 @@ export const SingleCategory = ({ history }) => {
   const [last, setLast] = useState();
   console.log(singlee);
 
+  const handeldeletefinal = (e) => {
+    e.preventDefault();
+    e.stopPropagation()
+    async function fetchData() {
+      const req = await axios.delete(
+        `singlecategories/${e.target.id}`
+      );
+    }
+    fetchData();
+  };
+
+
+  const handeleditfinal = (e) => {}
+
+
   const gotoosingle = (e) => {
     e.preventDefault();
     {
@@ -58,7 +73,10 @@ export const SingleCategory = ({ history }) => {
                     <p style={{ color: "white" }}>{obj.date}</p>
                   </div>
                 </div>
+                <button id={obj._id} onClick={handeleditfinal}>edit</button>
+                <button id={obj._id} onClick={handeldeletefinal}>delete</button>
               </div>
+              
             </div>
           );
         }

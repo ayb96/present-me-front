@@ -166,7 +166,7 @@ export const Dashback = ({ history }) => {
                     {obj.title}
                   </button>
                   <div>
-                    <button style={{ backgroundcolor: "blue", margin: "1rem" }}>
+                    <button style={{ backgroundcolor: "blue", margin: "3rem" }}>
                       edit
                     </button>
                     <button id={obj._id} onClick={handeldeletesub}>
@@ -177,7 +177,7 @@ export const Dashback = ({ history }) => {
                       onClick={handelCreateSingle}
                       className="dashfunbtn delbtnz"
                     >
-                      Create Single
+                      Create Sub
                     </button>
                   </div>
                 </div>

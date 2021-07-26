@@ -14,6 +14,9 @@ import { AllEventsSubCategory } from "./allEventsSubCategory/allEventsSubCategor
 import Title from "./titles/Title";
 import CreateSubEvent from "./CreateSubEvent /CreateSubEvent";
 import { CreateMainEvent } from "./CreateMain/createMain";
+import { UpdateSubbEvent } from "./UpdateSub/updateSub";
+
+import { UpdateMainEvent } from "./UpdateMain/updateMain";
 import React, { useState, useEffect } from "react";
 import { SingleCategory } from "./Dashboard/SubCategory";
 import SingleEvent from "./singleEvent/SingleEvent";
@@ -66,6 +69,8 @@ function App({ history }) {
           <Route path="/createsingleevent" exact component={CreateSubEvent} />
           <Route path="/createmainevent" exact component={CreateMainEvent} />
           <Route path="/createsubbevent" exact component={CreateSubbEvent} />
+          <Route path="/updatemainevent" exact component={UpdateMainEvent} />
+          <Route path="/updatesubevent" exact component={UpdateSubbEvent} />
         </Switch>
         <Footer />
       </MyContext.Provider>

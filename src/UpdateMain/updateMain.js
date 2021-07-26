@@ -1,8 +1,9 @@
-import React, { useState } from "react";
-
-import "./CreateMain.css";
+import React, { useState, useContext } from "react";
+import { MyContext } from ".././Context";
+import "./updateMain.css";
 import axios from "axios";
-export function CreateMainEvent() {
+export function UpdateMainEvent({history}) {
+  const { subid, setSubid ,singlee} = useContext(MyContext);
   const [subevent, setSubevent] = useState({
     imgUrl: "",
     title: "",
@@ -22,7 +23,7 @@ export function CreateMainEvent() {
       },
     };
     await axios
-      .post("http://localhost:8009/maincategories", subevent)
+      .patch(`http://localhost:8009/maincategories/${subid}`, subevent)
       .then((response) => {
         console.log("Status: ", response.status);
         console.log(response);
@@ -30,12 +31,13 @@ export function CreateMainEvent() {
       .catch((error) => {
         console.error("Something went wrong!", error);
       });
+      history.push("/discover");
   };
   console.log(subevent);
   return (
     <div>
       <div>
-        <h1 style={{ textAlign: "center" }}>Create Main Event</h1>
+        <h1 style={{ textAlign: "center" }}>Update Sub Event</h1>
       </div>
       <div className="main-form">
         <form onSubmit={onSubmet}>
@@ -58,7 +60,7 @@ export function CreateMainEvent() {
               <label>Image Url</label>
             </div>
             <div>
-              <input name="imgUrl" value={imgUrl} type="imgUrl" onChange={onChange} />
+              <input name="imgUrl" value={imgUrl} type="text" onChange={onChange} />
             </div>
           </div>
 

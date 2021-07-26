@@ -39,7 +39,7 @@ function CreateSubEvent({history}) {
   return (
     <div>
       <div>
-        <h1 style={{ textAlign: "center" }}>Create Sub Event</h1>
+        <h1 style={{ textAlign: "center" }}>Create Single Event</h1>
       </div>
       <div className="main-form">
         <form onSubmit={onSubmet}>
