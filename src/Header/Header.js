@@ -25,8 +25,7 @@ export const Header = () => {
                 history.push("/");
               }}
             >
-              {" "}
-              home{" "}
+              home
             </a>
           </li>
           <li>

@@ -7,11 +7,6 @@ import "aos/dist/aos.css";
 import { MyContext } from "../Context";
 AOS.init();
 
-const BUTTON_WRAPPER_STYLES = {
-  position: "relative",
-  zIndex: 1,
-};
-
 const POPBOX = {
   display: "flex",
   flexDirection: "column",
@@ -21,15 +16,6 @@ const POPBOX = {
 
 const BUTTON_COMPONENT = {
   margin: "5px",
-};
-
-const GRID_BOX = {
-  display: "grid",
-  gridTemplateColumns: "20rem 20rem 20rem",
-  gridAutoRows: "20rem",
-  gridGap: "50px",
-  justifyContent: "center",
-  padding: "30px",
 };
 
 //add
@@ -47,56 +33,40 @@ export const Dashback = ({ history }) => {
     }
     fetchData();
   }, []);
-  
+
   const handeldeletesub = (e) => {
     e.preventDefault();
-    e.stopPropagation()
+    e.stopPropagation();
     async function fetchData() {
-      const req = await axios.delete(
-        `subcategories/${e.target.id}`
-      );
+      const req = await axios.delete(`subcategories/${e.target.id}`);
     }
     fetchData();
   };
   const handeldeletemain = (e) => {
     e.preventDefault();
-    e.stopPropagation()
+    e.stopPropagation();
     async function fetchData() {
-      const req = await axios.delete(
-        `maincategories/${e.target.id}`
-      );
+      const req = await axios.delete(`maincategories/${e.target.id}`);
     }
     fetchData();
   };
 
-
-  
-
-
-
   const { singlee, setSinglee, subid, setSubid } = useContext(MyContext);
 
-
-
-  const handelCreateSub = (e) =>{
+  const handelCreateSub = (e) => {
     e.preventDefault();
-    e.stopPropagation()
-    setSubid(e.target.id)
-    console.log(subid)
+    e.stopPropagation();
+    setSubid(e.target.id);
+    console.log(subid);
     history.push("/createsubbevent");
-
-
-  }
-  const handelCreateSingle = (e) =>{
+  };
+  const handelCreateSingle = (e) => {
     e.preventDefault();
-    e.stopPropagation()
-    setSubid(e.target.id)
-    console.log(subid)
+    e.stopPropagation();
+    setSubid(e.target.id);
+    console.log(subid);
     history.push("/createsingleevent");
-
-
-  }
-
+  };
 
   const gotosingle = (e) => {
     e.preventDefault();
@@ -129,32 +99,26 @@ export const Dashback = ({ history }) => {
 
   return (
     <>
-      <div style={BUTTON_WRAPPER_STYLES}>
-      <button
-          onClick={() => {
-            
-            history.push("/createmainevent");
-          }}
-        >
-          Create main
-        </button>
-      <button
-          onClick={() => {
-            
-            history.push("/createsubevent");
-          }}
-        >
-          Create sub
-        </button>
-        <button
-          onClick={() => {
-            localStorage.removeItem("userInfo");
-            history.push("/");
-          }}
-        >
-          logout
-        </button>
-        <div style={GRID_BOX}>
+      <div className="dashboard">
+        <div className="dashbaord-btn">
+          <button
+            onClick={() => {
+              history.push("/createmainevent");
+            }}
+          >
+            Create main
+          </button>
+
+          <button
+            onClick={() => {
+              localStorage.removeItem("userInfo");
+              history.push("/");
+            }}
+          >
+            logout
+          </button>
+        </div>
+        <div className="grid-box">
           {yow.map((obj, index) => (
             <div
               key={index}
@@ -178,8 +142,12 @@ export const Dashback = ({ history }) => {
               <div className="singleboxttitle">{obj.title}</div>
               <div className="btnmainone">
                 <button>edit</button>
-                <button id={obj._id} onClick={handeldeletemain}>delete</button>
-                <button id={obj._id} onClick={handelCreateSub}>Create Sub</button>
+                <button id={obj._id} onClick={handeldeletemain}>
+                  delete
+                </button>
+                <button id={obj._id} onClick={handelCreateSub}>
+                  Create Sub
+                </button>
               </div>
             </div>
           ))}
@@ -189,7 +157,7 @@ export const Dashback = ({ history }) => {
           <form>
             <div className="overpop">
               {info.map((obj, index) => (
-                <div style={POPBOX} >
+                <div style={POPBOX}>
                   <button
                     style={BUTTON_COMPONENT}
                     id={obj._id}
@@ -197,16 +165,20 @@ export const Dashback = ({ history }) => {
                   >
                     {obj.title}
                   </button>
-                  <div className="wqere">
-                    <button className="dashfunbtn">edit</button>
-                    <button
-                      className="dashfunbtn delbtnz"
-                      id={obj._id}
-                      onClick={handeldeletesub}
-                    >
+                  <div>
+                    <button style={{ backgroundcolor: "blue", margin: "1rem" }}>
+                      edit
+                    </button>
+                    <button id={obj._id} onClick={handeldeletesub}>
                       delete
                     </button>
-                    <button id={obj._id} onClick={handelCreateSingle} className="dashfunbtn delbtnz">Create Sub</button>
+                    <button
+                      id={obj._id}
+                      onClick={handelCreateSingle}
+                      className="dashfunbtn delbtnz"
+                    >
+                      Create Single
+                    </button>
                   </div>
                 </div>
               ))}

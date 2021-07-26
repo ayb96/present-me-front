@@ -8,7 +8,7 @@ import Testimonial from "./Testimonial/Testimonials";
 import { Popup } from "./AllCategoriesComponent/Popup/Popup";
 import { Switch, Route } from "react-router-dom";
 import LoginPage from "./LoginPage/LoginPage";
-import { Dashboard } from "./Dashboard/Dashboard";
+
 import { Registration } from "./Registration/Registration";
 import { AllEventsSubCategory } from "./allEventsSubCategory/allEventsSubCategory";
 import Title from "./titles/Title";
@@ -20,6 +20,7 @@ import SingleEvent from "./singleEvent/SingleEvent";
 import { CreateSubbEvent } from "./CreateSub/createSub";
 import { MyContext } from "./Context";
 import { Dashback } from "./newDashboard/Popup";
+import New from "./NewThreeCate/New";
 function App({ history }) {
   const [isAuth, setIsAuth] = useState(false);
   const [singlee, setSinglee] = useState([]);
@@ -44,6 +45,7 @@ function App({ history }) {
           <Route path="/" exact>
             <MainSlideshow />
             <Title title="My Category" />
+            <New />
             <Title title="What Make Us Uniqe" />
             <UniqueFeatures />
             <Title title="Top Event" />
