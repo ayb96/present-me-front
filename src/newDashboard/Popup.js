@@ -97,6 +97,27 @@ export const Dashback = ({ history }) => {
 
   }
 
+  const handeleditmain = (e) =>{
+    e.preventDefault();
+    e.stopPropagation()
+    setSubid(e.target.id)
+    console.log(subid)
+    history.push("/updatemainevent");
+
+
+  }
+
+  const handelEditSub = (e) =>{
+    e.preventDefault();
+    e.stopPropagation()
+    setSubid(e.target.id)
+    console.log(subid)
+    history.push("/updatesubevent");
+
+
+  }
+
+
 
   const gotosingle = (e) => {
     e.preventDefault();
@@ -177,7 +198,7 @@ export const Dashback = ({ history }) => {
               ></button>
               <div className="singleboxttitle">{obj.title}</div>
               <div className="btnmainone">
-                <button>edit</button>
+                <button id={obj._id} onClick={handeleditmain}>edit</button>
                 <button id={obj._id} onClick={handeldeletemain}>delete</button>
                 <button id={obj._id} onClick={handelCreateSub}>Create Sub</button>
               </div>
@@ -198,7 +219,7 @@ export const Dashback = ({ history }) => {
                     {obj.title}
                   </button>
                   <div className="wqere">
-                    <button className="dashfunbtn">edit</button>
+                    <button className="dashfunbtn" id={obj._id}  onClick={handelEditSub}>editt</button>
                     <button
                       className="dashfunbtn delbtnz"
                       id={obj._id}
@@ -206,7 +227,7 @@ export const Dashback = ({ history }) => {
                     >
                       delete
                     </button>
-                    <button id={obj._id} onClick={handelCreateSingle} className="dashfunbtn delbtnz">Create Sub</button>
+                    <button id={obj._id} onClick={handelCreateSingle} className="dashfunbtn delbtnz">Create Single</button>
                   </div>
                 </div>
               ))}
