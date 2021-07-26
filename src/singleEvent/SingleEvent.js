@@ -7,17 +7,9 @@ const SingleEvent = (props) => {
 
   return (
     <div className="container-2">
-      <h1
-        style={{
-          margin: "1rem 0 1rem 0",
-          textTransform: "uppercase",
-          letterSpacing: "4px",
-        }}
-      >
-        {singlee.title}
-      </h1>
+      <h1>{singlee.title}</h1>
       <img
-        src={singlee.imgUrl}
+        src={singlee.auther}
         className="event__img"
         alt=""
         onClick={() => {
@@ -27,12 +19,12 @@ const SingleEvent = (props) => {
       <div className="box-1">
         <div className="event-info">
           <h3>Title: {singlee.title}</h3>
-          <h3>Description: </h3>
-          <h3>Event Date: </h3>
+          <h3>Description: {singlee.description} </h3>
+          <h3>Event Date: {singlee.date} </h3>
         </div>
         <div className="host-info">
-          <img alt="" />
-          <h3></h3>
+          <img src={singlee.auther} alt="" />
+          <h3>{singlee.name}</h3>
         </div>
       </div>
       <button className="btna">Attend</button>

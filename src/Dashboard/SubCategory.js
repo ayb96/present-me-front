@@ -35,8 +35,8 @@ export const SingleCategory = ({ history }) => {
                 <div
                   id={obj._id}
                   style={{
-                    backgroundImage: `url(${obj.imgUrl})`,
-                    backgroundSize: "cover",
+                    backgroundImage: `url(${obj.event})`,
+                    border: "1px solid red",
                     position: "relative",
                   }}
                 >
@@ -50,8 +50,13 @@ export const SingleCategory = ({ history }) => {
                       opacity: "0",
                     }}
                     id={obj._id}
-                  ></button>
-                  <div className="singleboxttitle">{obj.title}</div>
+                  >
+                    fff
+                  </button>
+                  <div className="singleboxttitle">
+                    {obj.title}
+                    <p style={{ color: "white" }}>{obj.date}</p>
+                  </div>
                 </div>
               </div>
             </div>

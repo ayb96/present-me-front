@@ -14,4 +14,10 @@
     margin: auto;
 }
 
-
+.btnmainone{
+    position: relative;
+    bottom: 30px;
+}
+.overpop{
+    overflow:scroll;
+}
