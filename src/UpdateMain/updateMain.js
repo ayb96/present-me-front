@@ -37,7 +37,7 @@ export function UpdateMainEvent({history}) {
   return (
     <div>
       <div>
-        <h1 style={{ textAlign: "center" }}>Update Main Event</h1>
+        <h1 style={{ textAlign: "center" }}>Update Sub Event</h1>
       </div>
       <div className="main-form">
         <form onSubmit={onSubmet}>
