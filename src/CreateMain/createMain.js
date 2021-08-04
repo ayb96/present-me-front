@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import "./CreateMain.css";
 import axios from "axios";
-export function CreateMainEvent() {
+export function CreateMainEvent({history}) {
   const [subevent, setSubevent] = useState({
     imgUrl: "",
     title: "",
@@ -22,7 +22,7 @@ export function CreateMainEvent() {
       },
     };
     await axios
-      .post("http://localhost:8009/maincategories", subevent)
+      .post("https://presentmeapp.herokuapp.com/maincategories", subevent)
       .then((response) => {
         console.log("Status: ", response.status);
         console.log(response);
@@ -30,6 +30,7 @@ export function CreateMainEvent() {
       .catch((error) => {
         console.error("Something went wrong!", error);
       });
+      history.push("/dashboard");
   };
   console.log(subevent);
   return (

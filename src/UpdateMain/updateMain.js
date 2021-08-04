@@ -23,7 +23,7 @@ export function UpdateMainEvent({history}) {
       },
     };
     await axios
-      .patch(`http://localhost:8009/maincategories/${subid}`, subevent)
+      .patch(`https://presentmeapp.herokuapp.com/maincategories/${subid}`, subevent)
       .then((response) => {
         console.log("Status: ", response.status);
         console.log(response);

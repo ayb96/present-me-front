@@ -25,7 +25,7 @@ export function CreateSubbEvent({history}) {
       },
     };
     await axios
-      .post(`http://localhost:8009/subcategories/${subid}`, subevent)
+      .post(`https://presentmeapp.herokuapp.com/subcategories/${subid}`, subevent)
       .then((response) => {
         console.log("Status: ", response.status);
         console.log(response);
@@ -33,7 +33,7 @@ export function CreateSubbEvent({history}) {
       .catch((error) => {
         console.error("Something went wrong!", error);
       });
-      history.push("/discover");
+      history.push("/dashboard");
   };
   console.log(subevent);
   return (
